@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="author-name">
+    <meta name="theme-color" content="#6576FF"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pageTitle}}</title>
+    <link rel="icon" type="image/x-icon" href="{{imageRoot}}favicon.ico">
+    {# <link rel="stylesheet" href="{{assetRoot}}css/style.css?v{{VER}}"> #}
+  </head>
+  <body data-navbar-collapse="xl" class="{{bodyClass}}">
+    
+    <div class="nm-root">
+
+      {% block nmHeader %}{% endblock %}
+
+      {% block nmContent %}{% endblock %}
+
+      {% block nmFooter %}{% endblock %}
+
+      
+    </div>
+    {# <script src="{{assetRoot}}js/bundle.js?v{{VER}}"></script> #}
+    {# <script src="{{assetRoot}}js/scripts.js?v{{VER}}"></script> #}
+  </body>
+</html>
