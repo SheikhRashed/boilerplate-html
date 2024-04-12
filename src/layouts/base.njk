@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#6576FF"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ pageTitle}}</title>
-    <link rel="icon" type="image/x-icon" href="{{imageRoot}}favicon.ico">
-    {# <link rel="stylesheet" href="{{assetRoot}}css/style.css?v{{VER}}"> #}
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" crossorigin href="/src/styles/style.scss">
   </head>
   <body data-navbar-collapse="xl" class="{{bodyClass}}">
     
@@ -18,10 +18,6 @@
       {% block nmContent %}{% endblock %}
 
       {% block nmFooter %}{% endblock %}
-
-      
     </div>
-    {# <script src="{{assetRoot}}js/bundle.js?v{{VER}}"></script> #}
-    {# <script src="{{assetRoot}}js/scripts.js?v{{VER}}"></script> #}
   </body>
 </html>

@@ -1,0 +1,32 @@
+//
+// Base styles
+//
+
+.accordion {
+  // scss-docs-start accordion-css-vars
+  --#{$prefix}accordion-color: #{$accordion-color};
+
+  --#{$prefix}accordion-bg: #{$white};
+  --#{$prefix}accordion-active-bg: #{$white};
+
+  --#{$prefix}accordion-transition: #{$accordion-transition};
+  --#{$prefix}accordion-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}accordion-inner-border-radius: #{$accordion-inner-border-radius};
+  --#{$prefix}accordion-btn-padding-x: 1.5rem;
+  --#{$prefix}accordion-btn-padding-y: 1rem;
+  --#{$prefix}accordion-btn-color: #{$accordion-button-color};
+  --#{$prefix}accordion-btn-bg: #{$accordion-button-bg};
+  --#{$prefix}accordion-btn-icon: "\e9c5";
+  --#{$prefix}accordion-btn-icon-transform: none;
+  --#{$prefix}accordion-btn-active-icon: none;
+  --#{$prefix}accordion-btn-focus-border-color: var(--#{$prefix}primary);
+  --#{$prefix}accordion-btn-focus-box-shadow: var(--#{$prefix}primary-box-shadow-ring);
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .accordion {
+      --#{$prefix}accordion-bg: var(--#{$prefix}gray-800);
+    }
+  }
+}

@@ -1,0 +1,147 @@
+.#{$prefix}mask {
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+
+  --#{$prefix}bg-color: #{$primary};
+  --#{$prefix}overlay: rgba(0, 0, 0, 0.3);
+
+  &.overlay {
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6,
+    p {
+      color: var(--#{$prefix}white);
+    }
+
+    &::after {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      z-index: -1;
+      position: absolute;
+      background: var(--#{$prefix}overlay);
+    }
+  }
+
+
+  &.mask {
+
+    &-1 {
+
+      &::before {
+        content: "";
+        position: absolute;
+      }
+
+      &::before {
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("#{$assetsPath}/masks/bg-wave-lg-1.png") center/cover no-repeat;
+      }
+    }
+
+    &-2 {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: var(--#{$prefix}overlay);
+      }
+
+      &::after {
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background: url("#{$assetsPath}/masks/bg-wave-lg-1.png") center/cover no-repeat;
+      }
+    }
+
+    &-3 {
+      &::after {
+        content: "";
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        position: absolute;
+        background: url("#{$assetsPath}/masks/bg-wave-lg-1.png") center/cover no-repeat;
+      }
+    }
+
+    &-4 {
+      // height: 35vh;
+
+      &::after {
+        left: 0;
+        top: 0;
+        content: "";
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        position: absolute;
+        background: url("#{$assetsPath}/masks/bg-wave-lg-1.png") center/cover no-repeat;
+      }
+    }
+  }
+
+
+
+  &.pattern {
+
+
+    &-1,
+    &-2 { 
+      &::after { 
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    }
+
+    &-1 {
+      &::after {
+        opacity: 0.06;
+        background: url("#{$assetsPath}/masks/pattern-1.png") center/cover no-repeat;
+      }
+    }
+
+    &-2 {
+      &::after {
+        opacity: 0.25;
+        background: url("#{$assetsPath}/masks/pattern-2.png") center/cover no-repeat;
+      }
+    }
+
+  }
+}

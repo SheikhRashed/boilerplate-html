@@ -1,0 +1,15 @@
+.form-control {
+  --#{$prefix}text-color: #{$blue-900};
+  --#{$prefix}form-control-bg-color: #{$white};
+  --#{$prefix}form-control-focus-bg-color: #{$white};
+  --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .form-control {
+      --#{$prefix}form-control-bg-color: var(--#{$prefix}gray-800);
+      --#{$prefix}form-control-focus-bg-color: var(--#{$prefix}form-control-bg-color);
+    }
+  }
+}

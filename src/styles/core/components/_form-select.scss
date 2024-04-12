@@ -1,0 +1,64 @@
+.#{$prefix}form-select {
+  --#{$prefix}form-select-width: 100%;
+
+  --#{$prefix}form-select-padding-x: 12px;
+  --#{$prefix}form-select-padding-y: 8px;
+
+  --#{$prefix}form-select-font-size: 0.875rem;
+  --#{$prefix}form-select-font-color: var(--#{$prefix}dark);
+
+  --#{$prefix}form-select-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}form-select-focus-border-color: var(--#{$prefix}primary);
+
+  --#{$prefix}form-select-box-shadow: var(--#{$prefix}primary-box-shadow-ring);
+
+  --#{$prefix}form-select-border: 1px solid var(--#{$prefix}form-select-border-color);
+  --#{$prefix}form-select-bg-color: transparent;
+
+  width: var(--#{$prefix}form-select-width);
+  border: var(--#{$prefix}form-select-border);
+  color: var(--#{$prefix}form-select-font-color);
+  font-size: var(--#{$prefix}form-select-font-size);
+  background-color: var(--#{$prefix}form-select-bg-color);
+  padding: var(--#{$prefix}form-select-padding-y) var(--#{$prefix}form-select-padding-x);
+
+  // element state
+  &:focus {
+    box-shadow: var(--#{$prefix}form-select-box-shadow);
+    border-color: var(--#{$prefix}form-select-focus-border-color);
+  }
+
+  // size variants
+  &.sm {
+    --#{$prefix}form-select-padding-y: 0.375rem;
+    --#{$prefix}form-select-padding-x: 0.625rem;
+  }
+
+  &.lg {
+    --#{$prefix}form-select-padding-y: 0.75rem;
+    --#{$prefix}form-select-padding-x: 1rem;
+  }
+
+  // style variants
+  &.style-1 {
+    // --#{$prefix}form-select-padding-x: 0px;
+    --#{$prefix}form-select-padding-y: 0px;
+    --#{$prefix}form-select-bg-color: transparent;
+
+    --#{$prefix}form-select-border-color: transparent;
+    --#{$prefix}form-select-focus-border-color: transparent;
+
+    --#{$prefix}form-select-box-shadow: none;
+
+    padding-right: calc(var(--#{$prefix}form-select-padding-x) * 2.5);
+  }
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .#{$prefix}form-select {
+      --#{$prefix}form-select-font-color: var(--#{$prefix}white);
+      --#{$prefix}form-select-bg-color: var(--#{$prefix}gray-800);
+    }
+  }
+}

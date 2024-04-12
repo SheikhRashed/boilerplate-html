@@ -1,0 +1,19 @@
+.#{$prefix}circle {
+  display: flex;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  // variant
+
+  &.#{$prefix}circle {
+    &-badge {
+      width: 198px;
+      height: 198px;
+      background-color: transparent;
+      border: 12px solid var(--#{$prefix}primary);
+    }
+  }
+}

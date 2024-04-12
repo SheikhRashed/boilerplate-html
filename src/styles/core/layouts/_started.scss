@@ -1,0 +1,51 @@
+.#{$prefix}started { 
+
+  &.general { 
+    .top { 
+      z-index: 1;
+      width: 100%;
+      height: 55vh;
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;    
+      background-color: var(--#{$prefix}primary-soft);
+
+      .#{$prefix}logo-wrap  { 
+        margin-bottom: 12px !important;
+
+        img { 
+          width: 180px;
+          height: auto;
+        }
+      }
+    }
+
+    .bottom { 
+      z-index: 2;
+      width: 100%;
+      height: 45vh;
+      padding: 30px;
+      padding-top: 50px;
+      position: relative;
+      background-color: var(--#{$prefix}white);
+
+      &::after { 
+        left: 0;
+        top: -30px;
+        z-index: -1;
+        content: "";
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 30px 30px 0px 0px;
+      }
+
+      .swiper { 
+        padding-bottom: 50px;
+      }
+    }
+  }
+  
+}

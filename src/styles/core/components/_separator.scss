@@ -1,0 +1,20 @@
+.#{$prefix}separator {
+  li,
+  div,
+  button {
+    position: relative;
+
+    &:not(:first-child) {
+      &::before {
+        top: 50%;
+        left: 0;
+        width: 1px;
+        content: "";
+        height: 40%;
+        position: absolute;
+        transform: translateY(-50%);
+        background-color: var(--#{$prefix}border-color);
+      }
+    }
+  }
+}

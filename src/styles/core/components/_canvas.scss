@@ -1,0 +1,13 @@
+.#{$prefix}chart {
+  --#{$prefix}nm-chart-height: null;
+
+  overflow: hidden;
+  position: relative;
+  height: var(--#{$prefix}nm-chart-height);
+
+  @each $size, $value in $nm-sizes {
+    &-#{$size} {
+      --#{$prefix}nm-chart-height: #{$value};
+    }
+  }
+}

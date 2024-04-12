@@ -1,0 +1,502 @@
+/********************************************
+
+  ### SCSS/SASS Function/Methods ###
+
+ *********************************************/
+
+@use "sass:map";
+@use "sass:math";
+@import "../../node_modules/bootstrap/scss/functions";
+
+@function override-map-value($map, $key, $value) {
+  $map: map-merge($map, (#{$key}: #{$value}));
+  @return $map;
+}
+
+/********************************************
+
+  ## BOOTSRAP FEATURE OPTIONS ##
+
+ *********************************************/
+$enable-gradients: true;
+$enable-negative-margins: true;
+
+
+// $enable-dark-mode: true !default;
+// $color-mode-type: data !default; // `data` or `media-query`
+
+/********************************************
+
+  ## PREFIX FOR :ROOT CSS VARIABLES ##
+
+ *********************************************/
+
+$variable-prefix: nm-;
+$prefix: $variable-prefix;
+
+/********************************************
+
+  ## DIRECTORY LINKS ##
+
+ *********************************************/
+
+$fontPath: "/assets/fonts";
+$assetsPath: "/assets/images";
+
+// $fontPath: "../fonts";
+// $assetsPath: "../../assets/images";
+
+/********************************************
+
+  ## COLORS ##
+
+ *********************************************/
+
+// override bs ( bootstrap ) colors
+
+$white: #fff;
+
+$gray-100: #f8f9fa;
+$gray-200: #f7f8f9;
+$gray-300: #ebf2ff;
+$gray-400: #ced4da;
+$gray-500: #64728f;
+$gray-600: #424e63;
+$gray-700: #343a40;
+$gray-800: #2A2F34;
+$gray-900: #212529;
+
+$black: #000;
+
+$gray: $gray-500;
+$blue: #6576ff;
+$blue-900: #14193f;
+$purple: #783efd;
+$pink: #f2426e;
+$red: #fa5b68;
+$orange: #ff6633;
+$yellow: #fdb52a;
+$green: #22c55e;
+$cyan: #2fd4ff;
+
+// scss-docs-start theme-color-variables
+$primary: $blue;
+
+$secondary: $gray-500;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: #0A1425;
+
+// social brand colors
+$sc-color-tw: $black;
+$sc-color-fb: #3b5997;
+$sc-color-dc: #5865f2;
+$sc-color-ig: #df237b;
+$sc-color-in: #0075aa;
+
+// scss-docs-start theme-text-variables
+$primary-text-emphasis: shade-color($primary, 60%) !default;
+$secondary-text-emphasis: shade-color($secondary, 60%) !default;
+$success-text-emphasis: shade-color($success, 60%) !default;
+$info-text-emphasis: shade-color($info, 60%) !default;
+$warning-text-emphasis: shade-color($warning, 60%) !default;
+$danger-text-emphasis: shade-color($danger, 60%) !default;
+$light-text-emphasis: $gray-700 !default;
+$dark-text-emphasis: $gray-700 !default;
+
+$theme-colors-text: (
+  "primary": $primary-text-emphasis,
+  "secondary": $secondary-text-emphasis,
+  "success": $success-text-emphasis,
+  "info": $info-text-emphasis,
+  "warning": $warning-text-emphasis,
+  "danger": $danger-text-emphasis,
+  "light": $light-text-emphasis,
+  "dark": $dark-text-emphasis
+);
+
+/********************************************
+
+  ## SPACING ##
+
+ *********************************************/
+
+$spacer: 0.75rem;
+
+/********************************************
+
+  ## Size ##
+
+ *********************************************/
+
+$nm-size: 2.25rem;
+
+$nm-sizes: (
+  xs: .75rem,
+  sm: 1.5rem,
+  md: $nm-size,
+  lg: 3rem,
+  xl: 3.5rem,
+  xxl: 4.25rem,
+  8: .5rem,
+  60: 3.75rem,
+  3xl: 5rem,
+  4xl: 7.75rem,
+);
+
+/********************************************
+
+  ## TYPOGRAPHY ##
+
+ *********************************************/
+
+//  override bs (bootstrap) font family
+$font-family-sans-serif: "Spline Sans", sans-serif;
+$font-family-sans-serif-secondary: "Roboto", sans-serif;
+
+$font-family-base: $font-family-sans-serif-secondary;
+
+// override bs (bootstrap) heading fs
+$font-size-base: .8125rem;
+$line-height-base: 1.6;
+
+$h1-font-size: 1.875rem; 
+$h2-font-size: 1.5rem;
+$h3-font-size: 1.25rem;
+$h4-font-size: 1.125rem;
+$h5-font-size: 1rem;
+$h6-font-size: 0.875rem;
+
+
+
+// override bs ( bootstrap ) fw
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// overrides bs ( bootstrap ) heading-variables
+$headings-color: $blue-900;
+$headings-font-weight: $font-weight-bold;
+$headings-font-family: $font-family-sans-serif;
+
+/********************************************
+  ## GRID SYSTEMS ##
+ *********************************************/
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 0.5rem;
+$grid-row-columns: 6 !default;
+
+/********************************************
+  ## BORDER & RADIUS ##
+ *********************************************/
+
+$border-color: #E5E7EB;
+$border-color-dark: #3F464D;
+
+$border-radius: 0.25rem;
+$border-radius-sm: $border-radius;
+$border-radius-pill: 50rem;
+
+// Settings for the `<body>` element.
+
+$body-bg: #E9F0FD;
+$body-color: $secondary;
+$body-bg-dark: $gray-900;
+// $body-text-align: null !default;
+
+$body-secondary-color: rgba($body-color, 0.75) !default;
+$body-secondary-bg: $gray-200 !default;
+
+$body-tertiary-color: rgba($body-color, 0.5) !default;
+$body-tertiary-bg: $gray-100 !default;
+
+$body-emphasis-color: $black !default;
+
+/********************************************
+  ## BS COMPONENT ACTIVE STATE ##
+ *********************************************/
+
+$component-active-color: $white;
+$component-active-bg: $primary;
+$component-active-bg-red: $red;
+$component-active-bg-yellow: $yellow;
+$component-active-bg-green: $green;
+$component-active-bg-cyan: $cyan;
+$component-active-bg-orange: $orange;
+$component-active-bg-pink: $pink;
+$component-active-bg-dark: $dark;
+$component-active-bg-gray: $gray;
+$component-active-bg-purple: $purple;
+
+// scss-docs-start focus-ring-variables
+$focus-ring-width: 0.25rem;
+$focus-ring-opacity: 0.25;
+$focus-ring-color: rgba($primary, $focus-ring-opacity) !default;
+$focus-ring-color-red: rgba($red, $focus-ring-opacity);
+$focus-ring-color-yellow: rgba($yellow, $focus-ring-opacity);
+$focus-ring-color-green: rgba($green, $focus-ring-opacity);
+$focus-ring-color-cyan: rgba($cyan, $focus-ring-opacity);
+$focus-ring-color-purple: rgba($purple, $focus-ring-opacity);
+$focus-ring-color-pink: rgba($pink, $focus-ring-opacity);
+$focus-ring-color-dark: rgba($dark, $focus-ring-opacity);
+$focus-ring-color-gray: rgba($gray, $focus-ring-opacity);
+$focus-ring-color-orange: rgba($orange, $focus-ring-opacity);
+$focus-ring-blur: 0;
+
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+$focus-ring-box-shadow-red: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-red;
+$focus-ring-box-shadow-yellow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-yellow;
+$focus-ring-box-shadow-green: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-green;
+$focus-ring-box-shadow-cyan: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-cyan;
+$focus-ring-box-shadow-purple: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-purple;
+$focus-ring-box-shadow-pink: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-pink;
+$focus-ring-box-shadow-dark: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-dark;
+$focus-ring-box-shadow-gray: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-gray;
+$focus-ring-box-shadow-orange: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color-orange;
+// scss-docs-end focus-ring-variables
+
+/********************************************  
+  ## BS COMPONENTS  ##
+ *********************************************/
+
+
+$nm-primary-hover-bg-shade-amount: 15%;
+$nm-primary-active-bg-shade-amount: 20%;
+$nm-primary-hover-border-shade-amount: 20%;
+
+$btn-hover-bg-shade-amount: 15% !default;
+$btn-hover-bg-tint-amount: 15% !default;
+$btn-hover-border-shade-amount: 20% !default;
+$btn-hover-border-tint-amount: 10% !default;
+$btn-active-bg-shade-amount: 20% !default;
+$btn-active-bg-tint-amount: 20% !default;
+$btn-active-border-shade-amount: 25% !default;
+$btn-active-border-tint-amount: 10% !default;
+
+$card-spacer-y: calc($spacer + 0.5rem);
+$card-spacer-x: calc($spacer + 0.5rem);
+$card-border-width: 0px;
+$card-border-color: transparent;
+$card-border-radius: var(--#{$prefix}border-radius);
+$card-box-shadow:
+  4px 4px 36px 0px #c0c0c029,
+  -4px -4px 36px 0px #c0c0c01f;
+$card-bg: $white;
+$card-bg-dark: $gray-700;
+
+
+/********************************************
+  ## BS FORM-INPUT-VARIABLES ##
+ *********************************************/
+$input-bg: #e4e6ea;
+$input-focus-border-color: tint-color($component-active-bg, 50%);
+$input-focus-border-color-red: tint-color($component-active-bg-red, 50%);
+$input-focus-border-color-yellow: tint-color($component-active-bg-yellow, 50%);
+$input-focus-border-color-green: tint-color($component-active-bg-green, 50%);
+$input-focus-border-color-cyan: tint-color($component-active-bg-cyan, 50%);
+$input-focus-border-color-purple: tint-color($component-active-bg-purple, 50%);
+$input-focus-border-color-orange: tint-color($component-active-bg-orange, 50%);
+$input-focus-border-color-pink: tint-color($component-active-bg-pink, 50%);
+$input-focus-border-color-dark: tint-color($component-active-bg-dark, 50%);
+$input-focus-border-color-gray: tint-color($component-active-bg-gray, 50%);
+
+// $input-padding-x: 0.75rem;
+// $input-padding-y: 0.5rem;
+
+
+
+
+
+/********************************************
+  ## BS FORM-CHECK ##
+ *********************************************/
+
+$input-btn-padding-y: .4375rem;
+$input-btn-padding-x: .75rem;
+
+$form-check-input-width: 1em !default;
+$form-check-min-height: $font-size-base * $line-height-base !default;
+$form-check-padding-start: $form-check-input-width + 0.5em !default;
+$form-check-margin-bottom: 0.125rem !default;
+$form-check-label-color: null !default;
+$form-check-label-cursor: null !default;
+$form-check-transition: null !default;
+
+$form-check-input-active-filter: brightness(90%) !default;
+
+// $form-check-input-bg: $input-bg;
+$form-check-input-border: var(--#{$prefix}border-width) solid var(--#{$prefix}border-color) !default;
+
+/********************************************
+  ## BS FORM-SWITCH ##
+ *********************************************/
+// $form-switch-color: rgba($black, 0.25) !default;
+$form-switch-color: $white;
+$form-switch-width: 2.625rem;
+$form-switch-height: calc($form-switch-width / 2);
+$form-switch-padding-start: $form-switch-width + 0.5rem !default;
+$form-switch-focus-color: $input-focus-border-color;
+$form-switch-focus-color-red: $input-focus-border-color-red;
+$form-switch-focus-color-yellow: $input-focus-border-color-yellow;
+$form-switch-focus-color-green: $input-focus-border-color-green;
+$form-switch-focus-color-cyan: $input-focus-border-color-cyan;
+$form-switch-focus-color-purple: $input-focus-border-color-purple;
+$form-switch-focus-color-orange: $input-focus-border-color-orange;
+$form-switch-focus-color-pink: $input-focus-border-color-pink;
+$form-switch-focus-color-dark: $input-focus-border-color-dark;
+$form-switch-focus-color-gray: $input-focus-border-color-gray;
+
+$form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>") !default;
+$form-switch-focus-bg-image-red: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-red}'/></svg>") !default;
+$form-switch-focus-bg-image-yellow: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-yellow}'/></svg>") !default;
+$form-switch-focus-bg-image-green: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-green}'/></svg>") !default;
+$form-switch-focus-bg-image-cyan: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-cyan}'/></svg>") !default;
+$form-switch-focus-bg-image-purple: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-purple}'/></svg>") !default;
+$form-switch-focus-bg-image-orange: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-orange}'/></svg>") !default;
+$form-switch-focus-bg-image-pink: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-pink}'/></svg>") !default;
+$form-switch-focus-bg-image-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-dark}'/></svg>") !default;
+$form-switch-focus-bg-image-gray: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-gray}'/></svg>") !default;
+
+
+// Navs
+
+// scss-docs-start nav-variables
+$nav-link-padding-y:                $input-btn-padding-y;
+$nav-link-padding-x:                $input-btn-padding-x;
+$nav-link-font-size:                .75rem;
+$nav-link-font-weight:              500;
+$nav-link-color:                    $body-color;
+// swiper variables overides
+$swiper-theme-color: var(--#{$prefix}primary);
+$swiper-navigation-font-size: 1.75rem;
+$swiper-navigation-size: 0.4375rem;
+$swiper-navigation-width: 3.375rem;
+$swiper-navigation-height: 3.375rem;
+$swiper-navigation-border-radius: $border-radius-pill;
+$swiper-navigation-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+$swiper-navigation-color: $primary;
+$swiper-navigation-bg: $white;
+$swiper-navigation-hover-bg: $primary;
+$swiper-navigation-hover-color: $white;
+
+$swiper-navigation-has-bg: $gray-100;
+$swiper-navigation-has-color: $primary;
+
+$swiper-pagination-bullet-size: 0.4375rem;
+$swiper-pagination-bullet-width: 0.4375rem;
+$swiper-pagination-bullet-height: 0.4375rem;
+$swiper-pagination-bullet-inactive-color: $blue-900;
+$swiper-pagination-bullet-active-color: $primary;
+$swiper-pagination-bullet-opacity: 0.2;
+$swiper-pagination-bullet-active-opacity: 1;
+
+$swiper-pagination-bullet-border-radius: $border-radius-pill;
+
+// theme colors
+$swiper-pagination-bullet-inactive-color-on-theme: $gray-400;
+$swiper-pagination-bullet-active-color-on-theme: $primary;
+
+$swiper-navigation-has-bg-on-theme: rgba($white, 0.2);
+$swiper-navigation-has-color-on-theme: $white;
+$swiper-navigation-has-bg-on-theme-hover-bg: $white;
+$swiper-navigation-has-bg-on-theme-hover-color: $primary;
+
+/********************************************
+
+  ### REQUIRED BS ( BOOTSTRAP )  STYLESHEETS ###
+
+ *********************************************/
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+/********************************************
+
+      #-----------------------------------#
+    ## DEFAULT BS (BOOTSTRAP ) MAP OVERRIDES ##
+      #-----------------------------------#
+
+ *********************************************/
+
+/********************************************
+  ## COLORS ##
+ *********************************************/
+
+$nm-colors: (
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900
+);
+
+$colors: map-merge($colors, $nm-colors);
+
+$theme-colors: map-merge($theme-colors, $colors);
+
+/********************************************
+  ## TYPOGRAPHY ##
+ *********************************************/
+
+$nm-font-sizes: (
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  16: 16px,
+  18: 18px
+);
+
+$font-sizes: map-merge($font-sizes, $nm-font-sizes);
+
+/********************************************
+  ## SPACING ##
+ *********************************************/
+
+$nm-spacers: (
+  6: 1.5rem,
+  8: .5rem,
+  10: .625rem,
+  12: .75rem,
+  30: 1.875rem,
+  32: 2rem,
+  36: 2.25rem,
+  40: 2.5rem,
+  48: 3rem,
+  50: 3.125rem,
+  60: 3.75rem,
+  70: 4.375rem,
+  80: 5rem,
+  100: 6.25rem,
+  130: 8.125rem,
+  156: 9.75rem,
+  160: 10rem
+);
+
+$spacers: override-map-value($spacers, 1, .25rem);
+$spacers: override-map-value($spacers, 4, 1rem);
+$spacers: override-map-value($spacers, 5, 1.25rem);
+
+$spacers: map-merge($spacers, $nm-spacers);
+
+$nm-rotates: (
+  0: 0deg,
+  45: 45deg,
+  90: 90deg,
+  180: 180deg
+);
+
+/********************************************
+  ### NIO-MOBILE ###
+ *********************************************/
+
+// section layouts
+$nm-sec-y: 0.5rem;

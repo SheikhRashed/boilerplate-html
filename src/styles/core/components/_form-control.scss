@@ -1,0 +1,79 @@
+.form-control {
+  --#{$prefix}form-control-padding-y: .4375rem;
+  --#{$prefix}form-control-padding-x: .75rem;
+
+  --#{$prefix}form-control-font-size: #{$input-font-size};
+
+  --#{$prefix}from-control-padding: var(--#{$prefix}form-control-padding-y) var(--#{$prefix}form-control-padding-x);
+
+  --#{$prefix}form-control-bg-color: #{$white};
+  --#{$prefix}form-control-focus-bg-color: #{$white};
+
+  --#{$prefix}form-control-text-color: var(--#{$prefix}text-color);
+  --#{$prefix}form-control-focus-text-color: var(--#{$prefix}text-color);
+  --#{$prefix}form-control-placeholder-text-color: var(--#{$prefix}gray-400);
+
+  --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow};
+
+  --#{$prefix}form-control-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}form-control-border: var(--#{$prefix}border-width) solid var(--#{$prefix}form-control-border-color);
+
+  border: var(--#{$prefix}form-control-border);
+  padding: var(--#{$prefix}from-control-padding);
+  color: var(--#{$prefix}form-control-text-color);
+  font-size: var(--#{$prefix}form-control-font-size);
+  background-color: var(--#{$prefix}form-control-bg-color);
+
+  &::placeholder {
+    font-size: 13px;
+    color: var(--#{$prefix}form-control-placeholder-text-color);
+  }
+
+  // form-controll states
+  &:focus {
+    border-color: var(--#{$prefix}primary);
+    box-shadow: var(--#{$prefix}focus-ring-box-shadow);
+    color: var(--#{$prefix}form-control-focus-text-color);
+    background-color: var(--#{$prefix}form-control-focus-bg-color);
+  }
+
+
+
+  // size variants
+
+  &-sm,
+  &-lg { 
+    border-radius: var(--#{$prefix}border-radius);
+  }
+
+  &-sm {
+    --#{$prefix}form-control-padding-y: .25rem;
+  }
+
+  &-lg {
+    --#{$prefix}form-control-padding-y: .6875rem;
+  }
+
+  // input type
+  &[type="date"] {
+    text-transform: uppercase;
+  }
+  
+}
+
+
+// dark mode
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .form-control {
+      --#{$prefix}form-control-text-color: var(--#{$prefix}white);
+      --#{$prefix}form-control-focus-text-color: var(--#{$prefix}white);
+      --#{$prefix}form-control-placeholder-text-color: rgba(255, 255, 255, 0.5);
+
+      &[type="date"] {
+        --#{$prefix}form-control-text-color: var(--#{$prefix}gray-400);
+      }
+
+    }
+  }
+}

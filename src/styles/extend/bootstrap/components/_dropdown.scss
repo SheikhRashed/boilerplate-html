@@ -1,0 +1,38 @@
+.dropdown-menu {
+
+  --#{$prefix}dropdown-padding-y: 0px;
+  --#{$prefix}dropdown-item-padding-y: 8px;
+
+  --#{$prefix}dropdown-link-active-color: null;
+  --#{$prefix}dropdown-link-hover-color: var(--#{$prefix}dark);
+  
+  --#{$prefix}dropdown-min-width: 8rem;
+  --#{$prefix}dropdown-bg: var(--#{$prefix}white);
+  --#{$prefix}dropdown-font-size: var(--#{$prefix}fs-12);
+
+  --#{$prefix}dropdown-link-active-bg: null;
+  --#{$prefix}dropdown-link-hover-bg: var(--#{$prefix}primary-soft);
+
+  --#{$prefix}dropdown-border-color: var(--#{$prefix}border-color);
+
+  .dropdown-item { 
+
+    &:hover { 
+      --#{$prefix}gradient: null;
+
+      .icon { 
+        color: var(--#{$prefix}primary);
+      }
+    }
+  }
+  
+}
+
+@include color-mode(dark) {
+
+  .dropdown-menu {
+    --#{$prefix}dropdown-bg: #{$gray-900};
+    --#{$prefix}dropdown-link-hover-color: #{$dark};
+  }
+
+}

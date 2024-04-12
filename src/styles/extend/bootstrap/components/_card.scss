@@ -1,0 +1,14 @@
+.card {
+  --#{$prefix}card-bg: #{$white};
+  --#{$prefix}card-title-color: #{$headings-color};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .card {
+      --#{$prefix}card-bg: #{$card-bg-dark};
+      --#{$prefix}card-cap-bg: var(--#{$prefix}gray-900);
+      --#{$prefix}card-title-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}

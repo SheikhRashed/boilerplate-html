@@ -1,0 +1,62 @@
+.toast { 
+  
+  --#{$prefix}toast-bar-bg: null; 
+  --#{$prefix}toast-color: #{$dark};
+
+  h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { 
+    color: var(--#{$prefix}toast-color) !important;
+  }
+
+  .btn-close { 
+    border-radius: 50%;
+  }
+
+  @each $color, $value in $theme-colors {
+
+    &-#{$color}  { 
+      --#{$prefix}toast-bg: #{$value};
+      --#{$prefix}toast-color: #{$white};
+
+      h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { 
+        color: var(--#{$prefix}toast-color);
+      }
+
+      p { 
+        color: rgba(255, 255, 255 , 0.75);
+      }
+
+      .btn-close { 
+        --#{$prefix}btn-close-color: #fff;
+        --#{$prefix}btn-close-white-filter: null;
+      }
+
+    }
+
+    &-#{$color}-soft { 
+      --#{$prefix}toast-color: #{$value};
+      --#{$prefix}toast-bar-bg: #{$value}; 
+      --#{$prefix}toast-bg: #{mix($value, $white, 15%)}; 
+
+      p { 
+        color: $gray-500;
+      }
+
+    }
+  } 
+
+  &.style-1 {     
+    overflow: hidden;
+    position: relative;
+
+    &::after { 
+      top: 0;
+      left: 0;
+      width: 4px;
+      content: "";
+      height: 100%;
+      position: absolute;    
+      background-color: var(--#{$prefix}toast-bar-bg);
+    }    
+  }
+
+}

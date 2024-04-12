@@ -1,0 +1,24 @@
+.offcanvas {
+  --#{$prefix}offcanvas-width: 100%;
+  --#{$prefix}offcanvas-bg: #fff;
+
+  @include media-breakpoint-up(lg) {
+    --#{$prefix}offcanvas-width: 300px;
+  }
+
+  &-header { 
+    .btn-close { 
+      &:focus { 
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .offcanvas {
+      --#{$prefix}offcanvas-bg: var(--#{$prefix}gray-800);
+    }
+  }
+}

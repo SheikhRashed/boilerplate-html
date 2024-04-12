@@ -1,0 +1,65 @@
+.#{$prefix}offcanvas {
+  --#{$prefix}offcanvas-height: auto;
+  --#{$prefix}offcanvas-margin: 0.75rem;
+  --#{$prefix}offcanvas-border-width: 0px;
+  --#{$prefix}offcanvas-border-width: 0px;
+  --#{$prefix}offcanvas-border-radius: #{$border-radius};
+  --#{$prefix}offcanvas-bg-color: var(--#{$prefix}primary);
+  --#{$prefix}offcanvas-bottom-space-around: 0px 12px 24px 12px;
+
+  overflow: hidden;
+  margin: 0px 12px;
+
+  // modifiers
+  &.offcanvas {
+    &-bottom {
+      margin: var(--#{$prefix}offcanvas-bottom-space-around);
+      border-radius: var(--#{$prefix}offcanvas-border-radius);
+    }
+  }
+
+  .offcanvas {
+    &-payment {
+      .#{$prefix}offcanvas {
+        &-body {
+          padding: 3.75rem 1.875rem;
+        }
+      }
+
+      .#{$prefix}circle {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+
+  &.landing  {
+   --#{$prefix}offcanvas-width: 480px;    
+
+   --#{$prefix}offcanvas-padding-x: 40px;
+   --#{$prefix}offcanvas-padding-y: 40px; 
+
+   --#{$prefix}offcanvas-box-shadow: 0px 0px 20px 0px #00000029;
+
+    margin: 0px;
+    box-shadow: var(--#{$prefix}offcanvas-box-shadow);
+
+    .offcanvas { 
+
+      &-header { 
+       --#{$prefix}offcanvas-padding-y: 24px; 
+        border-bottom: 1px solid var(--#{$prefix}border-color);
+      }
+    }
+
+    & + .offcanvas-backdrop.show { 
+      opacity: 0.1;
+    }
+
+  }
+}
+
+// @if $enable-dark-mode {
+//   @include color-mode(dark) {
+//   }
+// }

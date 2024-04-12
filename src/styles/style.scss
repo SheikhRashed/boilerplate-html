@@ -1,0 +1,28 @@
+/********************************************
+
+  ## Version:- 1.0.0   
+  ## Updated:- 28.03.2024 
+  ## Author:- Softnio 
+  ## Author URI:- http://themeforest.net/user/softnio 
+  ## Template Name: NioMobile 
+  
+ *********************************************/
+
+//  A Friendly Reminder:- Avoid editing this file. For any writing or modifications, the 'scss/core/custom.scss' file is the appropriate location."
+
+// include variables
+@import "variables";
+@import "vendors/nioicon/variables";
+// @import "extend/bootstrap/variables";
+
+// include fonts
+@import "core/fonts/+.scss";
+
+// extend bootstrap
+@import "extend/+.scss";
+
+// include vendores
+@import "vendors/+.scss";
+
+// include core style
+@import "core/+.scss";

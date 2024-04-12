@@ -1,0 +1,15 @@
+.#{$prefix}modal {
+  --#{$prefix}modal-title-color: #{$headings-color};
+
+  .modal {
+    &-title {
+      color: var(--#{$prefix}modal-title-color);
+    }
+  }
+}
+
+@include color-mode(dark) {
+  .#{$prefix}modal {
+    --#{$prefix}modal-title-color: var(--#{$prefix}white);
+  }
+}

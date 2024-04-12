@@ -1,0 +1,8 @@
+.#{$prefix}rotate {
+  @each $rotate, $value in $nm-rotates {
+    &-#{$rotate} {
+      --#{$prefix}rotate: #{$value};
+      transform: rotate(var(--#{$prefix}rotate));
+    }
+  }
+}

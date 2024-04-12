@@ -1,0 +1,34 @@
+.#{$prefix}mobile-frame {
+  --#{$prefix}frame-width: 100%;
+  --#{$prefix}frame-height: 680px;
+
+  padding: 5px;
+  margin: 0px auto;
+  overflow: hidden;
+  overflow: hidden;
+  border-radius: 32px;
+  width: var(--#{$prefix}frame-width);
+  height: var(--#{$prefix}frame-height);
+  background-color: var(--#{$prefix}dark);
+
+  @include media-breakpoint-up(sm) {
+    --#{$prefix}frame-width: 392px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --#{$prefix}frame-height: 718px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+}
+
+@include color-mode(dark) {
+  .#{$prefix}mobile-frame {
+    border-color: $gray-300;
+  }
+}

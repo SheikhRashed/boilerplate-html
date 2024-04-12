@@ -1,0 +1,106 @@
+.#{$prefix}counter {
+  &-container {
+    --#{$prefix}counter-action-padding-x: 6px;
+    --#{$prefix}counter-action-padding-y: 6px;
+
+    --#{$prefix}counter-bg-color: transparent;
+    --#{$prefix}counter-hover-bg-color: var(--#{$prefix}primary);
+
+    --#{$prefix}counter-action-border-radius: var(--#{$prefix}border-radius);
+    --#{$prefix}counter-action-box-shadow: var(--#{$prefix}focus-ring-box-shadow);
+
+    --#{$prefix}counter-padding: var(--#{$prefix}counter-action-padding-y) var(--#{$prefix}counter-action-padding-x);
+
+    --#{$prefix}counter-text-size: var(--#{$prefix}fs-5);
+
+    --#{$prefix}counter-text-color: var(--#{$prefix}gray);
+    --#{$prefix}counter-text-hover-color: var(--#{$prefix}white);
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow};
+    --#{$prefix}counter-border: 1px solid var(--#{$prefix}border-color);
+
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--#{$prefix}counter-bg-color);
+
+    &.style-1 {
+      --#{$prefix}counter-text-size: var(--#{$prefix}fs-4);
+
+      gap: 12px;
+
+      .#{$prefix}counter {
+        &-action {
+          padding: 8px;
+          min-width: 18px;
+          min-height: 18px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &.style-2 {
+      --#{$prefix}counter-border: none;
+      --#{$prefix}counter-action-padding-x: 8px;
+      --#{$prefix}counter-action-padding-y: 8px;
+      --#{$prefix}counter-bg-color: #{$gray-300};
+      --#{$prefix}counter-action-box-shadow: none;
+      --#{$prefix}counter-action-border-radius: 0px;
+
+      .#{$prefix}counter {
+        &-action {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &-action,
+  &-display {
+    display: flex;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-action {
+    color: var(--#{$prefix}counter-text-color);
+    padding: var(--#{$prefix}counter-action-padding-y) var(--#{$prefix}counter-action-padding-x);
+    min-width: 20px;
+    min-height: 20px;
+    box-shadow: none;
+    transition: all 0.1s linear;
+    font-size: var(--#{$prefix}fs-6);
+    border: var(--#{$prefix}counter-border);
+    border-radius: var(--#{$prefix}counter-action-border-radius);
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: var(--#{$prefix}primary);
+      color: var(--#{$prefix}counter-text-hover-color);
+      box-shadow: var(--#{$prefix}counter-action-box-shadow);
+      background-color: var(--#{$prefix}counter-hover-bg-color);
+    }
+  }
+
+  &-display {
+    min-width: 20px;
+    font-weight: $font-weight-bold;
+    color: var(--#{$prefix}counter-text-color);
+    font-size: var(--#{$prefix}counter-text-size);
+  }
+}
+
+@include color-mode(dark) {
+  .#{$prefix}counter-container {
+    --#{$prefix}counter-text-color: #{$gray-300};
+
+    &.style-2 {
+      --#{$prefix}counter-text-color: var(--#{$prefix}gray-200);
+      --#{$prefix}counter-bg-color: var(--#{$prefix}gray-500);
+    }
+  }
+}

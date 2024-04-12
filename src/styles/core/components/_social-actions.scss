@@ -1,0 +1,40 @@
+.#{$prefix}social {
+  gap: .5rem;
+
+  &-icon {
+    --#{$prefix}social-size: 1.75rem;
+    --#{$prefix}social-border-radius: 50%;
+    --#{$prefix}social-text-color: #{$white};
+
+    display: flex;
+    font-size: 14px;
+    overflow: hidden;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    width: var(--#{$prefix}social-size);
+    height: var(--#{$prefix}social-size);
+    color: var(--#{$prefix}social-text-color);
+    border-radius: var(--#{$prefix}social-border-radius);
+
+    &.fb {
+      background-color: $sc-color-fb;
+    }
+
+    &.tw {
+      background-color: $sc-color-tw;
+    }
+
+    &.dc {
+      background-color: $sc-color-dc;
+    }
+
+    &.ig {
+      background-color: $sc-color-ig;
+    }
+
+    &.in {
+      background-color: $sc-color-in;
+    }
+  }
+}

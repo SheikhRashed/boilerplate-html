@@ -1,0 +1,107 @@
+.#{$prefix}table {
+  --#{$prefix}table-text-color: var(--#{$prefix}gray-900);
+
+  --#{$prefix}table-body-font-weight: #{$font-weight-normal};
+
+  --#{$prefix}padding-x: 0.5rem;
+  --#{$prefix}padding-y: 1rem;
+  // --#{$prefix}table-padding: var(--#{$prefix}padding-y) var(--#{$prefix}padding-x);
+
+  --#{$prefix}table-head-font-weight: #{$font-weight-bold};
+  --#{$prefix}table-head-text-color: var(--#{$prefix}table-text-color);
+
+  margin-bottom: 0px;
+
+  // table content
+  thead,
+  tbody {
+    th,
+    td {
+      white-space: nowrap;
+      vertical-align: middle;
+      color: var(--#{$prefix}table-text-color);
+      padding: var(--#{$prefix}padding-y) var(--#{$prefix}padding-x);
+    }
+
+    th,
+    td {
+      &:first-child {
+        padding-left: 20px;
+      }
+
+      &:last-child {
+        padding-right: 20px;
+      }
+    }
+  }
+
+  // table head
+  thead {
+    th {
+      color: var(--#{$prefix}table-head-text-color);
+      font-weight: var(--#{$prefix}table-head-font-weight);
+    }
+  }
+
+  // table body
+  tbody {
+    th {
+      --#{$prefix}table-text-color: var(--#{$prefix}primary);
+    }
+    td {
+      font-weight: var(--#{$prefix}table-body-font-weight);
+    }
+
+    tr {
+      &:nth-last-child(1) {
+        th,
+        td {
+          --#{$prefix}border-width: 0px;
+        }
+
+        // td {
+        //   padding-bottom: 0px;
+        // }
+      }
+    }
+  }
+
+  // style variants
+
+  &.style-1 {
+    --#{$prefix}padding-y: 1.625rem;
+
+    --#{$prefix}table-head-text-color: var(--#{$prefix}gray);
+    --#{$prefix}table-head-font-weight: #{$font-weight-normal};
+
+    // table head
+    thead {
+      th {
+        --#{$prefix}padding-y: 0.5rem;
+
+        // &:first-child {
+        //   padding-left: 20px;
+        // }
+      }
+    }
+
+    // table body
+    tbody {
+      th {
+        padding-left: 20px;
+      }
+
+      td {
+        --#{$prefix}table-body-font-weight: #{$font-weight-medium};
+      }
+    }
+  }
+}
+
+@include color-mode(dark) {
+  .#{$prefix}table {
+    --#{$prefix}table-text-color: var(--#{$prefix}gray-100);
+
+    --#{$prefix}table-head-text-color: var(--#{$prefix}gray-500);
+  }
+}

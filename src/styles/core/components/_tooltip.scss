@@ -1,0 +1,17 @@
+.#{$prefix}tooltip {
+  --#{$prefix}tooltip-icon-color: var(--#{$prefix}gray-rgb);
+  --#{$prefix}tooltip-icon-font-size: var(--#{$prefix}fs-3);
+
+  // bs tooltip element & modifers
+  .tooltip {
+    &-inner {
+      text-transform: capitalize;
+    }
+  }
+
+  // parent wrapper content
+  .icon {
+    color: var(--#{$prefix}tooltip-icon-color);
+    font-size: var(--#{$prefix}tooltip-icon-font-size);
+  }
+}

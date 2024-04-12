@@ -1,0 +1,426 @@
+// :root {
+//   --#{$prefix}primary-rgb: #{to-rgb($primary)};
+//   --#{$prefix}primary-soft: #{mix($primary, $white, 15%)};
+//   --#{$prefix}primary-hover-bg: #{shade-color($primary, $nm-primary-hover-bg-shade-amount)};
+//   --#{$prefix}primary-active-bg: #{shade-color($primary, $nm-primary-active-bg-shade-amount)};
+//   --#{$prefix}primary-hover-border: #{shade-color($primary, $nm-primary-hover-border-shade-amount)};
+//   --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow};
+// }
+
+// highlight color
+[data-bs-highlight="blue"] {
+  --#{$prefix}primary-rgb: #{to-rgb($primary)};
+  --#{$prefix}primary-soft: #{mix($primary, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($primary, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($primary, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($primary, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow};
+  --#{$prefix}link-color: #{$primary};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($primary, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+}
+
+[data-bs-highlight="red"] {
+  --#{$prefix}primary: #{$red};
+  --#{$prefix}primary-rgb: #{to-rgb($red)};
+  --#{$prefix}primary-soft: #{mix($red, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($red, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($red, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($red, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-red};
+  --#{$prefix}link-color: #{$red};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($red, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-red};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$red};
+    --#{$prefix}media-bg-color: #{mix($red, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-red};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}red) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-red)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-red};
+  }
+}
+
+[data-bs-highlight="yellow"] {
+  --#{$prefix}primary: #{$yellow};
+  --#{$prefix}primary-rgb: #{to-rgb($yellow)};
+  --#{$prefix}primary-soft: #{mix($yellow, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($yellow, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($yellow, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($yellow, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-yellow};
+  --#{$prefix}link-color: #{$yellow};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($yellow, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-yellow};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$yellow};
+    --#{$prefix}media-bg-color: #{mix($yellow, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-yellow};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}yellow) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-yellow)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-yellow};
+  }
+}
+
+[data-bs-highlight="green"] {
+  --#{$prefix}primary: #{$green};
+  --#{$prefix}primary-rgb: #{to-rgb($green)};
+  --#{$prefix}primary-soft: #{mix($green, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($green, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($green, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($green, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-green};
+  --#{$prefix}link-color: #{$green};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($green, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-green};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$green};
+    --#{$prefix}media-bg-color: #{mix($green, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-green};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}green) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-green)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-green};
+  }
+}
+
+[data-bs-highlight="cyan"] {
+  --#{$prefix}primary: #{$cyan};
+  --#{$prefix}primary-rgb: #{to-rgb($cyan)};
+  --#{$prefix}primary-soft: #{mix($cyan, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($cyan, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($cyan, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($cyan, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-cyan};
+  --#{$prefix}link-color: #{$cyan};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($cyan, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-cyan};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$cyan};
+    --#{$prefix}media-bg-color: #{mix($cyan, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-cyan};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}cyan) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-cyan)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-cyan};
+  }
+}
+
+[data-bs-highlight="purple"] {
+  --#{$prefix}primary: #{$purple};
+  --#{$prefix}primary-rgb: #{to-rgb($purple)};
+  --#{$prefix}primary-soft: #{mix($purple, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($purple, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($purple, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($purple, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-purple};
+  --#{$prefix}link-color: #{$purple};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($purple, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-purple};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$purple};
+    --#{$prefix}media-bg-color: #{mix($purple, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-purple};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}purple) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-purple)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-purple};
+  }
+}
+
+[data-bs-highlight="orange"] {
+  --#{$prefix}primary: #{$orange};
+  --#{$prefix}primary-rgb: #{to-rgb($orange)};
+  --#{$prefix}primary-soft: #{mix($orange, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($orange, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($orange, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($orange, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-orange};
+  --#{$prefix}link-color: #{$orange};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($orange, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-orange};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$orange};
+    --#{$prefix}media-bg-color: #{mix($orange, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-orange};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}orange) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-orange)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-orange};
+  }
+}
+
+[data-bs-highlight="pink"] {
+  --#{$prefix}primary: #{$pink};
+  --#{$prefix}primary-rgb: #{to-rgb($pink)};
+  --#{$prefix}primary-soft: #{mix($pink, $white, 15%)};
+  --#{$prefix}primary-hover-bg: #{shade-color($pink, $nm-primary-hover-bg-shade-amount)};
+  --#{$prefix}primary-active-bg: #{shade-color($pink, $nm-primary-active-bg-shade-amount)};
+  --#{$prefix}primary-hover-border: #{shade-color($pink, $nm-primary-hover-border-shade-amount)};
+  --#{$prefix}primary-box-shadow-ring: #{$focus-ring-box-shadow-pink};
+  --#{$prefix}link-color: #{$pink};
+  --#{$prefix}link-color-rgb: var(--#{$prefix}primary-rgb);
+  --#{$prefix}link-hover-color: #{shift-color($pink, $link-shade-percentage)};
+  // --#{$prefix}link-hover-color-rgb: #{to-rgb(var(--#{$prefix}link-hover-color))};
+
+  // utility
+  .bg-primary-soft {
+    color: var(--#{$prefix}primary) !important;
+    background-color: var(--#{$prefix}primary-soft) !important;
+  }
+
+  // components
+  .badge-primary {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary);
+  }
+  .badge-primary-soft {
+    --#{$prefix}badge-bg-color: var(--#{$prefix}primary-soft);
+  }
+
+  .#{$prefix}counter-container {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-pink};
+  }
+
+  .#{$prefix}media-primary {
+    --#{$prefix}media-bg-color: var(--#{$prefix}primary);
+  }
+  .#{$prefix}media-primary-soft {
+    --#{$prefix}media-text-color: #{$pink};
+    --#{$prefix}media-bg-color: #{mix($pink, white, 15%)};
+  }
+
+  .#{$prefix}select {
+    --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow-pink};
+  }
+
+  .#{$prefix}progress-center-primary {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}pink) !important;
+  }
+
+  .form-switch {
+    --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image-pink)};
+  }
+
+  .form-control {
+    --#{$prefix}focus-ring-box-shadow: #{$focus-ring-box-shadow-pink};
+  }
+}
+
+
+// [data-bs-highlight="red"]{}
+// [data-bs-highlight="yellow"]{}
+// [data-bs-highlight="green"]{}
+// [data-bs-highlight="cyan"]{}
+// [data-bs-highlight="purple"]{}
+// [data-bs-highlight="orange"]{}
+// [data-bs-highlight="pink"]{}
+// [data-bs-highlight="gray"]{}

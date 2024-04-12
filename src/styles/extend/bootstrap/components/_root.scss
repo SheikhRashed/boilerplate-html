@@ -1,0 +1,11 @@
+:root {
+  @each $color, $value in $theme-colors {
+    // soft variant
+    --#{$prefix}#{$color}-soft: #{mix($value, $white, 15%)};
+  }
+
+  // fonts size
+  @each $size, $value in $font-sizes {
+    --#{$prefix}fs-#{$size}: #{$value};
+  }
+}

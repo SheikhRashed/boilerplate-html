@@ -1,0 +1,7 @@
+.tooltip {
+  --#{$prefix}tooltip-padding-x: 0.375rem;
+  --#{$prefix}tooltip-padding-y: 0.375rem;
+
+  --#{$prefix}tooltip-font-size: var(--#{$prefix}fs-12);
+  --#{$prefix}tooltip-border-radius: var(--#{$prefix}border-radius);
+}

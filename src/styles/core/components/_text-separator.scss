@@ -1,0 +1,33 @@
+.#{$prefix}text-sep {
+  --#{$prefix}sep-padding-y: 1rem;
+  --#{$prefix}sep-padding-x: 1.5rem;
+
+  text-align: center;
+  overflow: hidden;
+
+  &-content {
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    color: var(--#{$prefix}dark);
+    padding: 0px var(--#{$prefix}sep-padding-x);
+
+    &::after,
+    &::before {
+      top: 50%;
+      content: "";
+      height: 1px;
+      width: 100vw;
+      position: absolute;
+      transform: translateY(-50%);
+      background-color: var(--#{$prefix}border-color);
+    }
+
+    &::before {
+      left: 100%;
+    }
+    &::after {
+      right: 100%;
+    }
+  }
+}

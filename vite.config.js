@@ -6,8 +6,16 @@ import nunjucks from '@vituum/vite-plugin-nunjucks'
 import timeReporter from 'vite-plugin-time-reporter';
 
 export default defineConfig({
+  publicDir: resolve(__dirname, 'src/public'),
   plugins:[
-    vituum(),
+      vituum({
+        imports: {
+            filenamePattern: {
+                '+.css': [],
+                '+.scss': 'src/styles'
+            },
+        }
+    }),
     Inspect(),
     timeReporter(),
     nunjucks({

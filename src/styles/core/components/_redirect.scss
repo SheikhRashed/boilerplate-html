@@ -1,0 +1,21 @@
+.#{$prefix}redirect {
+  position: relative;
+  &::after {
+    right: 0;
+    top: 50%;
+    position: absolute;
+    content: $ni-downward-ios;
+    color: var(--#{$prefix}gray);
+    transition: all 0.2s linear;
+    font-family: $nio-font-family;
+    font-weight: $font-weight-bold;
+    transform: translateY(-50%) translateX(0) rotate(-90deg);
+  }
+
+  &:hover {
+    &::after {
+      color: var(--#{$prefix}primary);
+      transform: translateY(-50%) translateX(2px) rotate(-90deg) !important;
+    }
+  }
+}

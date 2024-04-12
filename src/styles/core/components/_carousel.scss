@@ -1,0 +1,29 @@
+.swiper {
+  --#{$prefix}swiper-theme-color: #{$swiper-theme-color};
+  --#{$prefix}swiper-pagination-bullet-size: 8px;
+  // --#{$prefix}swiper-pagination-bullet-width: 8px;
+  // --#{$prefix}swiper-pagination-bullet-height: 8px;
+  --#{$prefix}swiper-pagination-bullet-inactive-color: #{$blue-900};
+  // --#{$prefix}swiper-pagination-bullet-inactive-opacity: 0.2;
+  // --#{$prefix}swiper-pagination-bullet-opacity: 1;
+  // --#{$prefix}swiper-pagination-bullet-horizontal-gap: 4px;
+  // --#{$prefix}swiper-pagination-bullet-vertical-gap: 6px;
+
+  &-pagination-bullet {
+    opacity: 0.2;
+    width: var(--#{$prefix}swiper-pagination-bullet-size);
+    height: var(--#{$prefix}swiper-pagination-bullet-size);
+    background-color: var(--#{$prefix}swiper-pagination-bullet-inactive-color);
+  }
+
+  &-pagination-bullet-active {
+    opacity: 1;
+    background-color: var(--#{$prefix}swiper-theme-color);
+  }
+}
+
+@include color-mode(dark) {
+  .swiper {
+    --#{$prefix}swiper-pagination-bullet-inactive-color: #{$white};
+  }
+}

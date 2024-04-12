@@ -1,0 +1,201 @@
+.#{$prefix}progress {
+  --#{$prefix}pr-value: null;
+
+  --#{$prefix}pr-bar-bg: null;
+  --#{$prefix}pr-container-bg: null;
+
+  --#{$prefix}pr-bar-width: null;
+  --#{$prefix}pr-bar-height: null;
+
+  --#{$prefix}pr-bg-rgb-color: null;
+  --#{$prefix}pr-bar-bg-color: null;
+  --#{$prefix}pr-circle-inner-bg-color: null;
+
+  --#{$prefix}pr-container-width: null;
+  --#{$prefix}pr-container-height: null;
+
+  --#{$prefix}pr-bar-border-radius: null;
+  --#{$prefix}pr-container-border-radius: null;
+
+  --#{$prefix}pr-label-font-size: #{$font-size-base};
+  --#{$prefix}pr-label-color: var(--#{$prefix}gray-600);
+  --#{$prefix}pr-label-line-height: #{$line-height-base};
+
+  // color variants
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      --#{$prefix}pr-bar-bg-color: #{$value};
+      --#{$prefix}pr-bar-label-color: #{$value};
+      --#{$prefix}pr-bg-rgb-color: #{to-rgb(mix($value, $white, 25%))};
+    }
+
+    &-center-#{$color} {
+      --#{$prefix}pr-circle-inner-bg-color: #{$value};
+    }
+  }
+
+  // element & modifiers
+  &-label {
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    color: var(--#{$prefix}pr-label-color);
+    font-size: var(--#{$prefix}pr-label-font-size);
+    line-height: var(--#{$prefix}pr-label-line-height);
+  }
+
+  &-container {
+    width: var(--#{$prefix}pr-container-width);
+    height: var(--#{$prefix}pr-container-height);
+    background: var(--#{$prefix}pr-container-bg);
+    border-radius: var(--#{$prefix}pr-container-border-radius);
+  }
+
+  &-bar {
+    width: var(--#{$prefix}pr-bar-width);
+    height: var(--#{$prefix}pr-bar-height);
+    background: var(--#{$prefix}pr-bar-bg);
+    border-radius: var(--#{$prefix}pr-bar-border-radius);
+  }
+
+  &-linear {
+    --#{$prefix}pr-bar-height: 100%;
+    --#{$prefix}pr-container-width: 100%;
+    --#{$prefix}pr-container-height: 6px;
+    --#{$prefix}pr-container-border-radius: 24px;
+    --#{$prefix}pr-bar-width: var(--#{$prefix}pr-value);
+    --#{$prefix}pr-bar-bg: var(--#{$prefix}pr-bar-bg-color);
+    --#{$prefix}pr-container-bg: rgba(var(--#{$prefix}pr-bg-rgb-color), 0.4);
+
+    .#{$prefix}progress {
+      &-container {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        align-items: center;
+        // width: var(--#{$prefix}pr-container-width);
+        // height: var(--#{$prefix}pr-container-height);
+        // border-radius: var(--#{$prefix}pr-container-border-radius);
+        // background-color: rgb(var(--#{$prefix}pr-bg-rgb-color));
+        // width: var(--#{$prefix}pr-container-width);
+        // height: var(--#{$prefix}pr-container-height);
+        // border-radius: var(--#{$prefix}pr-container-border-radius);
+        // background-color: rgb(var(--#{$prefix}pr-bg-rgb-color));
+      }
+
+      &-bar {
+        transition: width 0.3s linear;
+        // width: var(--#{$prefix}pr-bar-width);
+        // height: var(--#{$prefix}pr-bar-height);
+        // background-color: var(--#{$prefix}pr-bar-bg-color);
+      }
+    }
+  }
+
+  &-circle {
+    // --#{$prefix}pr-bg-rgb-color: transparent;
+    --#{$prefix}pr-bar-width: 70px;
+    --#{$prefix}pr-bar-height: 70px;
+    --#{$prefix}pr-bar-border-radius: 50%;
+
+    --#{$prefix}pr-container-width: null;
+    --#{$prefix}pr-container-height: null;
+    --#{$prefix}pr-container-border-radius: null;
+    --#{$prefix}pr-circle-inner-bg-color: #{$white};
+
+    --#{$prefix}pr-bar-bg: radial-gradient(
+        closest-side,
+        var(--#{$prefix}pr-circle-inner-bg-color) 79%,
+        transparent 80% 100%,
+        white 0
+      ),
+      conic-gradient(
+        var(--#{$prefix}pr-bar-bg-color) calc(var(--#{$prefix}pr-value) * 1%),
+        rgba(var(--#{$prefix}pr-bg-rgb-color), 0.4) 0
+      );
+
+    .#{$prefix}progress {
+      &-container {
+        background-color: transparent;
+      }
+
+      &-bar {
+        position: relative;
+
+        &::after {
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          white-space: nowrap;
+          font-weight: $font-weight-bold;
+          transform: translate(-50%, -50%);
+          font-size: var(--#{$prefix}fs-6);
+          content: counter(percentage) "%";
+          color: var(--#{$prefix}pr-bar-label-color);
+          counter-reset: percentage var(--#{$prefix}pr-value);
+        }
+      }
+    }
+
+    &.download {
+      &:hover,
+      &[style="--#{$prefix}pr-value: 100;"]:hover {
+        --#{$prefix}pr-bar-label-color: var(--#{$prefix}red);
+        --#{$prefix}pr-bar-bg-color: #{mix($red, $white, 25%)};
+        --#{$prefix}pr-bg-rgb-color: #{to-rgb(mix($red, $white, 25%))};
+      }
+
+      &[style="--#{$prefix}pr-value: 100;"] {
+        --#{$prefix}pr-bar-bg-color: var(--#{$prefix}green);
+        --#{$prefix}pr-bar-label-color: var(--#{$prefix}green);
+        --#{$prefix}pr-bg-rgb-color: #{to-rgb(mix($green, $white, 25%))};
+
+        .#{$prefix}progress {
+          &-bar {
+            &::after {
+              content: "\e9bd";
+              border-radius: 50%;
+              font-family: $nio-font-family;
+              width: calc(var(--#{$prefix}pr-bar-width) / 2);
+              height: calc(var(--#{$prefix}pr-bar-height) / 2);
+              background-color: rgba(var(--#{$prefix}pr-bg-rgb-color), 0.4);
+            }
+          }
+        }
+      }
+
+      .#{$prefix}progress {
+        &-bar {
+          &::after,
+          &:hover::after {
+            display: flex;
+            overflow: hidden;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-family: $nio-font-family;
+          }
+
+          &:hover::after {
+            content: "\ea06";
+            width: calc(var(--#{$prefix}pr-bar-width) / 2);
+            height: calc(var(--#{$prefix}pr-bar-height) / 2);
+            background-color: rgba(var(--#{$prefix}pr-bg-rgb-color), 0.4);
+          }
+        }
+      }
+    }
+  }
+}
+
+// dark mode
+@include color-mode(dark) {
+  .#{$prefix}progress {
+    --#{$prefix}pr-circle-inner-bg-color: var(--#{$prefix}gray-800);
+
+    &-circle {
+      &.download {
+        --#{$prefix}pr-bar-label-color: var(--#{$prefix}gray-100);
+      }
+    }
+  }
+}

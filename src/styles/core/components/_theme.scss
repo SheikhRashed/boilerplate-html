@@ -1,0 +1,55 @@
+.theme-toggle {
+  .off {
+    display: none;
+  }
+
+  &-text {
+    .off {
+      display: none;
+    }
+  }
+}
+
+// Theme Mode
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    --#{$prefix}dark: #{$white};
+    --#{$prefix}secondary: #ffffffcc;
+    --#{$prefix}dark-rgb: #{to-rgb($white)};
+    --#{$prefix}secondary-rgb: #{to-rgb(#ffffffbf)};
+    --#{$prefix}white-rgb: var( --#{$prefix}secondary-rgb);
+
+    .theme-toggle {
+      .on {
+        display: none;
+      }
+      .off {
+        display: block;
+      }
+      &-text {
+        .on {
+          display: none;
+        }
+        .off {
+          display: inline-block;
+        }
+      }
+    }
+
+    .text-dark,
+    .text-secondary { 
+     --#{$prefix}text-opacity: 0.75;
+    }
+
+    .bg-white { 
+      --#{$prefix}white-rgb: #{to-rgb($dark)};
+    }
+
+    .text-bg-white { 
+      --#{$prefix}white-rgb: #{to-rgb($gray-800)};
+      
+      color: #fff !important;
+    }
+
+  }
+}

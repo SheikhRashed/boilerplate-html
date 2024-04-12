@@ -1,0 +1,43 @@
+.#{$prefix}sticky-badge {
+
+  --#{$prefix}sticky-border-radius: 4px 0px 0px 4px;
+
+  top: 35%;
+  right: 0px;
+  z-index: 999;
+  padding: 6px;
+  position: fixed;
+  overflow: hidden;
+  background-color: #fff;
+  transform: translateY(-35%);
+  box-shadow: -4px 0px 12px 0px #00000014;
+  border-radius: var(--#{$prefix}sticky-border-radius);
+
+  @include media-breakpoint-down(md) { 
+    display: none;
+  }
+
+  ul { 
+    gap: .375rem;
+    display: flex;
+    flex-direction: column;
+
+    li { 
+      a { 
+        width: 36px;
+        height: 36px;
+        display: flex;
+        transform: scale(1);
+        align-items: center;
+        justify-content: center;
+        transition: all 0.1s linear;
+        font-size: var(--#{$prefix}fs-4);
+        border-radius: var(--#{$prefix}border-radius);
+
+        &:active { 
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}

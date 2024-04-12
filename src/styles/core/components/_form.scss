@@ -1,0 +1,134 @@
+.form {
+  --#{$prefix}form-control-bg-color: #fff;
+
+  &-field {
+    position: relative;
+  }
+
+  &-label {
+    --#{$prefix}label-font-size: .875rem;
+    --#{$prefix}label-color: var(--#{$prefix}dark);
+    --#{$prefix}label-font-weight: #{$font-weight-medium};
+
+    text-transform: capitalize;
+    color: var(--#{$prefix}label-color);
+    font-size: var(--#{$prefix}label-font-size);
+    font-weight: var(--#{$prefix}label-font-weight);
+  }
+
+  &-icon {
+    top: 50%;
+    display: flex;
+    // font-size: 16px;
+    position: absolute;
+    align-items: center;
+    transform: translateY(-50%);
+    color: var(--#{$prefix}secondary);
+
+    &.start {
+      left: 12px;
+
+      ~ .form-control {
+        padding-left: calc(var(--#{$prefix}form-control-padding-x) * 3);
+      }
+
+      ~ .form-control-sm {
+        padding-left: calc(var(--#{$prefix}form-control-padding-x) * 3.5);
+      }
+
+      ~ .form-control-lg {
+        padding-left: calc(var(--#{$prefix}form-control-padding-x) * 3);
+      }
+
+    }
+
+    &.end {
+      right: 12px;
+
+      ~ .form-control {
+        padding-right: calc(var(--#{$prefix}form-control-padding-x) * 3);
+      }
+
+      ~ .form-control.sm {
+        padding-right: calc(var(--#{$prefix}form-control-padding-x) * 3.5);
+      }
+
+      ~ .form-control.lg {
+        padding-right: calc(var(--#{$prefix}form-control-padding-x) * 2.5);
+      }
+    }
+
+    &.clear {
+      display: none;
+      color: var(--#{$prefix}red);
+    }
+
+    &.password-toggle {
+      .on {
+        display: block;
+      }
+      .off {
+        display: none;
+      }
+
+      &.is-shown {
+        .on {
+          display: none;
+        }
+        .off {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &-control { 
+
+    &.password  { 
+      
+      &:valid,
+      &.is-valid,
+      &:invalid,
+      &.is-invalid
+      { 
+        background-image: none;
+      }
+
+      &:valid,
+      &.is-valid { 
+        & + .form-icon { 
+          .icon { 
+            color: var(--#{$prefix}form-valid-color) !important;
+          }
+        }
+      }
+
+      &:invalid,
+      &.is-invalid { 
+        & + .form-icon { 
+          .icon { 
+            color: var(--#{$prefix}form-invalid-color) !important;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+// validation
+.invalid-feedback { 
+  position: absolute;
+  font-size: .625rem;
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .form {
+      &-label {
+        --#{$prefix}label-color: var(--#{$prefix}gray-300);
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.modal {
+  --#{$prefix}modal-border-width: 0px;
+  --#{$prefix}modal-bg: var(--#{$prefix}white);
+  --#{$prefix}modal-border-radius: var(--#{$prefix}border-radius);
+}
+
+@include color-mode(dark) {
+  .modal {
+    --#{$prefix}modal-bg: var(--#{$prefix}gray-800);
+  }
+}

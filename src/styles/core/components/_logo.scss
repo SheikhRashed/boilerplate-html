@@ -1,0 +1,20 @@
+.#{$prefix}logo {
+  &-img {
+    &.dark {
+      display: none;
+    }
+  }
+}
+
+@include color-mode(dark) {
+  .#{$prefix}logo {
+    &-img {
+      &.dark {
+        display: block;
+      }
+      &.light {
+        display: none;
+      }
+    }
+  }
+}

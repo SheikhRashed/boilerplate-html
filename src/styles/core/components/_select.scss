@@ -1,0 +1,325 @@
+.#{$prefix}select {
+  --#{$prefix}select-width: 24px;
+  --#{$prefix}select-height: 24px;
+
+  --#{$prefix}select-font-size: 0px;
+  --#{$prefix}select-line-height: 0px;
+
+  --#{$prefix}select-border-radius: 50%;
+
+  --#{$prefix}select-bg-color: #{$white};
+  --#{$prefix}select-bg-active-color: var(--#{$prefix}primary);
+
+  --#{$prefix}select-text-color: var(--#{$prefix}gray-600);
+  --#{$prefix}select-text-active-color: var(--#{$prefix}primary);
+
+  --#{$prefix}select-border-color: var(--#{$prefix}border-color);
+  --#{$prefix}select-border-active-color: var(--#{$prefix}primary);
+
+  --#{$prefix}select-box-shadow: #{$focus-ring-box-shadow};
+
+  &-field {
+    &[type="radio"],
+    &[type="checkbox"] {
+      display: none;
+      visibility: hidden;
+
+      + label {
+        line-height: 0;
+        overflow: hidden;
+        box-shadow: none;
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        text-transform: uppercase;
+        transition: all 0.2s linear;
+        width: var(--#{$prefix}select-width);
+        height: var(--#{$prefix}select-height);
+        color: var(--#{$prefix}select-text-color);
+        font-size: var(--#{$prefix}select-font-size);
+        line-height: var(--#{$prefix}select-line-height);
+        background-color: var(--#{$prefix}select-bg-color);
+        border-radius: var(--#{$prefix}select-border-radius);
+        border: 1px solid var(--#{$prefix}select-border-color);
+      }
+
+      &:checked + label {
+        font-size: var(--#{$prefix}select-font-size);
+        box-shadow: var(--#{$prefix}select-box-shadow);
+        color: var(--#{$prefix}select-text-active-color);
+        border-color: var(--#{$prefix}select-border-active-color);
+        background-color: var(--#{$prefix}select-bg-active-color);
+      }
+    }
+
+    &[type="radio"] {
+      + label {
+        --#{$prefix}select-width: 26px;
+        --#{$prefix}select-height: 26px;
+        --#{$prefix}select-font-size: var(--#{$prefix}fs-12);
+      }
+
+      &:checked + label {
+        --#{$prefix}select-text-active-color: #fff;
+
+        // color: #fff;
+        // box-shadow: var(--#{$prefix}select-box-shadow);
+        // border-color: var(--#{$prefix}select-border-active-color);
+        // background-color: var(--#{$prefix}select-bg-active-color);
+      }
+    }
+
+    &[type="checkbox"] {
+      + label,
+      &:checked + label {
+        --#{$prefix}select-text-color: #fff;
+        --#{$prefix}select-font-size: var(--#{$prefix}fs-10);
+      }
+
+      + label {
+        --#{$prefix}select-width: 24px;
+        --#{$prefix}select-height: 24px;
+      }
+
+      &:checked + label {
+        --#{$prefix}select-text-active-color: #fff;
+      }
+    }
+  }
+
+  // types of select
+  &-payment {
+    --#{$prefix}select-box-shadow: none;
+    --#{$prefix}select-bg-color: #fff;
+    --#{$prefix}select-bg-active-color: #fff;
+    --#{$prefix}select-border-radius: var(--#{$prefix}border-radius);
+
+    .#{$prefix}select {
+      &-field {
+        &[type="radio"] {
+          + label {
+            --#{$prefix}select-width: auto;
+            --#{$prefix}select-height: auto;
+
+            img {
+              width: auto;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-date {
+    --#{$prefix}select-border-color: transparent;
+    --#{$prefix}select-bg-color: var(--#{$prefix}gray-200);
+    --#{$prefix}select-text-color: var(--#{$prefix}secondary);
+    --#{$prefix}select-text-active-color: var(--#{$prefix}white);
+    --#{$prefix}select-border-radius: var(--#{$prefix}border-radius);
+
+    .#{$prefix}select {
+      &-field {
+        + label {
+          --#{$prefix}select-width: 50px;
+          --#{$prefix}select-height: 50px;
+
+          span {
+            font-weight: $font-weight-bold;
+            color: var(--#{$prefix}select-text-color);
+          }
+        }
+
+        &:checked + label {
+          h5,
+          span {
+            color: var(--#{$prefix}select-text-active-color);
+          }
+        }
+      }
+    }
+  }
+
+  &-task {
+    --#{$prefix}select-box-shadow: none;
+    --#{$prefix}select-width: auto;
+    --#{$prefix}select-height: auto;
+    --#{$prefix}select-bg-active-color: none;
+    --#{$prefix}label-icon-color: var(--#{$prefix}gray);
+    --#{$prefix}label-active-icon-color: var(--#{$prefix}primary);
+    --#{$prefix}select-border-radius: var(--#{$prefix}border-radius);
+
+    .#{$prefix}select {
+      &-field {
+        + label {
+          --#{$prefix}select-width: 100%;
+          --#{$prefix}select-height: auto;
+
+          gap: 8px;
+          padding: 12px;
+          align-items: start;
+          padding-bottom: 16px;
+          justify-content: start;
+
+          .icon {
+            color: var(--#{$prefix}label-icon-color);
+            &.off {
+              display: none;
+            }
+          }
+          h6 {
+            text-transform: capitalize;
+          }
+        }
+
+        &:checked + label {
+          .icon {
+            color: var(--#{$prefix}label-active-icon-color);
+
+            &.on {
+              display: none;
+            }
+
+            &.off {
+              display: block;
+            }
+          }
+
+          h6 {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+
+  &-schedule {
+    --#{$prefix}select-title-fs: var(--#{$prefix}fs-6);
+
+    --#{$prefix}select-title-color: var(--#{$prefix}gray-900);
+    --#{$prefix}select-title-active-color: var(--#{$prefix}white);
+
+    --#{$prefix}select-subtitle-color: var(--#{$prefix}gray);
+    --#{$prefix}select-subtitle-active-color: var(--#{$prefix}gray-100);
+
+    --#{$prefix}select-container-bg-color: var(--#{$prefix}gray-100);
+    --#{$prefix}select-container-bg-active-color: var(--#{$prefix}primary);
+
+    // &.active {
+    //   --#{$prefix}select-title-color: var(--#{$prefix}white);
+    //   --#{$prefix}select-subtitle-color: var(--#{$prefix}gray-100);
+    //   --#{$prefix}select-container-bg-color: var(--#{$prefix}primary);
+    // }
+
+    gap: 12px;
+    display: flex;
+    align-items: center;
+
+    .#{$prefix}select {
+      &-title {
+        line-height: 20px;
+        margin-bottom: 0px;
+        text-transform: capitalize;
+        color: var(--#{$prefix}select-title-color);
+        font-size: var(--#{$prefix}select-title-fs);
+      }
+
+      &-subtitle {
+        display: inline-block;
+        font-size: var(--#{$prefix}fs-12);
+        color: var(--#{$prefix}select-subtitle-color);
+      }
+
+      &-time {
+        white-space: nowrap;
+        color: var(--#{$prefix}gray);
+        font-size: var(--#{$prefix}fs-6);
+        font-weight: $font-weight-bold;
+      }
+
+      &-container {
+        width: 100%;
+        padding: 12px;
+        transition: all 0.3s linear;
+        border-radius: var(--#{$prefix}border-radius);
+        background-color: var(--#{$prefix}select-container-bg-color);
+
+        &:hover {
+          background-color: var(--#{$prefix}select-container-bg-active-color);
+
+          .#{$prefix}select {
+            &-title {
+              color: var(--#{$prefix}select-title-active-color);
+            }
+
+            &-subtitle {
+              color: var(--#{$prefix}select-subtitle-active-color);
+            }
+          }
+        }
+      }
+    }
+
+    &.active {
+      .#{$prefix}select {
+        &-title {
+          color: var(--#{$prefix}select-title-active-color);
+        }
+
+        &-subtitle {
+          color: var(--#{$prefix}select-subtitle-active-color);
+        }
+
+        &-container {
+          background-color: var(--#{$prefix}select-container-bg-active-color);
+        }
+      }
+    }
+  }
+}
+
+// dark mode
+@include color-mode(dark) {
+  .#{$prefix}select {
+    --#{$prefix}select-bg-color: var(--#{$prefix}gray-800);
+
+    &-field {
+      &[type="radio"],
+      &[type="checkbox"] {
+        + label {
+          --#{$prefix}select-text-color: transparent;
+        }
+      }
+    }
+
+    &-payment {
+      --#{$prefix}select-bg-color: var(--#{$prefix}gray-400);
+      --#{$prefix}select-bg-active-color: var(--#{$prefix}gray-200);
+    }
+
+    &-date {
+      --#{$prefix}select-bg-color: var(--#{$prefix}gray-800);
+      --#{$prefix}select-text-color: var(--#{$prefix}white);
+
+      .#{$prefix}select {
+        &-field {
+          + label {
+            span {
+              --#{$prefix}select-text-color: var(--#{$prefix}white);
+            }
+          }
+        }
+      }
+    }
+
+    &-schedule {
+      --#{$prefix}select-container-bg-color: var(--#{$prefix}gray);
+      --#{$prefix}select-subtitle-color: var(--#{$prefix}gray-100);
+    }
+
+    &-task { 
+      --#{$prefix}label-icon-color: rgba(255, 255, 255, 0.75); 
+    }
+
+  }
+}

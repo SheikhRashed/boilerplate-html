@@ -1,0 +1,40 @@
+.form-switch {
+  --#{$prefix}from-switch-padding: 10px;
+
+  --#{$prefix}form-switch-min-height: 2.5rem;
+
+  --#{$prefix}form-switch-input-width: 2.5rem;
+  --#{$prefix}form-switch-input-height: 1.375rem;
+
+  --#{$prefix}form-switch-bg-color: #E5E7EB;
+  --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image)};
+  --#{$prefix}form-switch-focus-bg: #{escape-svg($form-switch-focus-bg-image)};
+
+  min-height: var(--#{$prefix}form-switch-min-height);
+  .form {
+    &-check-input {
+      margin: 0px;
+      padding: var(--#{$prefix}from-switch-padding);
+      width: var(--#{$prefix}form-switch-input-width);
+      height: var(--#{$prefix}form-switch-input-height);
+      background-image: var(--#{$prefix}form-switch-bg);
+      background-color: var(--#{$prefix}form-switch-bg-color);
+
+      &:checked {
+        --#{$prefix}form-switch-bg-color: var(--#{$prefix}primary);
+      }
+
+      &:focus {
+        --#{$prefix}form-switch-bg: var(--#{$prefix}form-switch-focus-bg);
+      }
+    }
+  }
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .form-switch {
+      --#{$prefix}form-switch-bg-color: var(--#{$prefix}gray-900);
+    }
+  }
+}

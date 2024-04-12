@@ -1,0 +1,10 @@
+.#{$prefix}pagination {
+  .page {
+    &-item:first-child,
+    &-item:last-child {
+      .page-link {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}

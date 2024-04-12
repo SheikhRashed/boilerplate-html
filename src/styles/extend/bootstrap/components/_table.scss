@@ -1,0 +1,9 @@
+.table {
+  --#{$prefix}body-bg: var(--#{$prefix}white);
+}
+
+@include color-mode(dark) {
+  .table {
+    --#{$prefix}body-bg: var(--#{$prefix}gray-800);
+  }
+}

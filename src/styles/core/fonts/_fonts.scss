@@ -1,0 +1,79 @@
+// include Spline Sans
+ @font-face {
+  font-family: "Spline Sans", sans-serif;
+  src:
+    local("SplineSans Regular"),
+    local("SplineSans-Regular"),
+    url("#{$fontPath}/spline-sans/SplineSans-Regular.woff") format("woff"),
+    url("#{$fontPath}/spline-sans/SplineSans-Regular.ttf") format("truetype"),
+    url("#{$fontPath}/spline-sans/SplineSans-Regular.svg#SplineSans-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} 
+
+ @font-face {
+  font-family: "Spline Sans", sans-serif;
+  src:
+    local("SplineSans Medium"),
+    local("SplineSans-Medium"),
+    url("#{$fontPath}/spline-sans/SplineSans-Medium.woff") format("woff"),
+    url("#{$fontPath}/spline-sans/SplineSans-Medium.ttf") format("truetype"),
+    url("#{$fontPath}/spline-sans/SplineSans-Medium.svg#SplineSans-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+} 
+
+ @font-face {
+  font-family: "Spline Sans", sans-serif;
+  src:
+    local("SplineSans Bold"),
+    local("SplineSans-Bold"),
+    url("#{$fontPath}/spline-sans/SplineSans-Bold.woff") format("woff"),
+    url("#{$fontPath}/spline-sans/SplineSans-Bold.ttf") format("truetype"),
+    url("#{$fontPath}/spline-sans/SplineSans-Bold.svg#SplineSans-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} 
+
+// include Roboto
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src:
+    local("Roboto Regular"),
+    local("Roboto-Regular"),
+    url("#{$fontPath}/roboto/Roboto-Regular.woff") format("woff"),
+    url("#{$fontPath}/roboto/Roboto-Regular.ttf") format("truetype"),
+    url("#{$fontPath}/roboto/Roboto-Regular.svg#Roboto-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src:
+    local("Roboto Medium"),
+    local("Roboto-Medium"),
+    url("#{$fontPath}/roboto/Roboto-Medium.woff") format("woff"),
+    url("#{$fontPath}/roboto/Roboto-Medium.ttf") format("truetype"),
+    url("#{$fontPath}/roboto/Roboto-Medium.svg#Roboto-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src:
+    local("Roboto Bold"),
+    local("Roboto-Bold"),
+    url("#{$fontPath}/roboto/Roboto-Bold.woff") format("woff"),
+    url("#{$fontPath}/roboto/Roboto-Bold.ttf") format("truetype"),
+    url("#{$fontPath}/roboto/Roboto-Bold.svg#Roboto-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

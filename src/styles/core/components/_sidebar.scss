@@ -1,0 +1,225 @@
+@use "sass:math";
+
+.#{$prefix}sidebar {
+  --#{$prefix}offcanvas-bg: #fff;
+  --#{$prefix}offcanvas-width: 85%;
+  --#{$prefix}sidebar-title-color: #{$blue-900};
+
+  display: flex;
+  border: 0 !important;
+  flex-direction: column;
+  background-color: var(--#{$prefix}offcanvas-bg);
+
+
+  &-body {
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & > div {
+      padding: 12px 0px;
+      padding-bottom: 24px;
+
+      h6 {
+        letter-spacing: 0.10em;
+        color: var(--#{$prefix}sidebar-title-color);
+      }
+    }
+  }
+
+  // body content
+  &-msg {
+
+    .#{$prefix}media { 
+      --#{$prefix}media-width: 2.75rem;
+      --#{$prefix}media-height: 2.75rem;
+    }
+
+    ul {
+      gap: 12px;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+      overflow-x: scroll;
+      align-items: center;
+      justify-content: space-between;
+
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      
+    }
+  }
+
+  // app settings
+  &-settings {
+
+    --#{$prefix}highlight-color: #{$gray-600};
+
+    .highlight-btn {
+      em {
+        color: var(--#{$prefix}highlight-color);
+        &:hover,
+        &:active {
+          color: var(--#{$prefix}primary);
+        }
+      }
+    }
+
+    .nm-color-palette { 
+      ul { 
+        gap: .5rem;
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+        align-items: center;
+      }
+      .nm-color-item { 
+        input { 
+          width: 44px;
+        }
+      }
+    }
+  }
+
+  // Sidebar Menu
+  &-menu {
+    --#{$prefix}menu-title: .8125rem;
+    --#{$prefix}menu-text-transform: uppercase;
+    --#{$prefix}menu-title-font-weight: #{$headings-font-weight};
+
+    &-sub {
+      --#{$prefix}menu-title: var(--#{$prefix}fs-12);
+
+      padding-left: 50px;
+
+      .#{$prefix}sidebar-menu-item { 
+        border-bottom: 0px !important;
+      }
+
+      .#{$prefix}sidebar-menu-sub {
+        --#{$prefix}menu-title-font-weight: 500;
+        --#{$prefix}menu-text-transform: capitalize;
+
+        padding-top: 2px;
+        padding-left: 6px;
+
+        .#{$prefix}sidebar-menu-item {
+          padding: 6px 0px;
+          border-bottom: 0px;
+        }
+
+      }
+    }
+
+    &-title {
+      font-family: $font-family-sans-serif;
+      color: var(--#{$prefix}heading-color);
+      font-size: var(--#{$prefix}menu-title);
+      font-weight: var(--#{$prefix}menu-title-font-weight);
+      text-transform: var(--#{$prefix}menu-text-transform);
+    }
+
+    &-link {
+      gap: .75rem;
+      width: 100%;
+      display: flex;
+      position: relative;
+      align-items: center;
+      text-decoration: none;
+      color: var(--#{$prefix}gray-600);
+      
+      &:hover { 
+        color: var(--#{$prefix}primary);
+      }
+    }
+
+    &-item {
+      padding: 10px 0px;
+
+      &:not(:last-child) { 
+        border-bottom: 1px solid var(--#{$prefix}border-color);
+      }
+
+      &.has-sub {
+
+        & > .#{$prefix}sidebar-menu-link {
+          &::after {
+            right: 0;
+            top: 50%;
+            position: absolute;
+            content: $ni-downward-ios;
+            transition: all 0.2s linear;
+            font-family: $nio-font-family;
+            font-weight: $font-weight-bold;
+            color: var(--#{$prefix}secondary);
+            transform: translateY(-50%) rotate(-90deg);
+          }
+        }
+      }
+
+      &.active {
+        & > .#{$prefix}sidebar-menu-link {
+          &::after {
+            transform: translateY(-50%) rotate(0deg);
+          }
+        }
+      }
+    }
+  }
+
+  // Social Link
+  &-social {
+
+    .#{$prefix}social-icon {
+      // --#{$prefix}social-size: 2.25rem;
+      // --#{$prefix}social-text-color: #{$white};
+      // --#{$prefix}social-border-radius: #{$border-radius-pill};
+
+      transform: scale(1);
+      transition: all 0.1s linear;
+
+      &:hover {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+}
+
+// theme mode
+@include color-mode(dark) {
+  .#{$prefix}sidebar {
+    --#{$prefix}sidebar-title-color: #fff;
+
+    &-settings {
+      --#{$prefix}highlight-color: #{$gray-400};
+    }
+
+    &-menu-title {
+      --#{$prefix}heading-color: #{$gray-400};
+    }
+    
+    &-settings {
+
+      h5,
+      .h5 {
+        color: $gray-400;
+      }
+      
+    }
+
+    .highlight-btn { 
+      .icon { 
+        color: var(--#{$prefix}gray);
+      }
+    }
+  }
+}

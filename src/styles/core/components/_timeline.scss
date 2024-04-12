@@ -1,0 +1,47 @@
+.#{$prefix}timeline {
+  --#{$prefix}timeline-dot-bg: var(--#{$prefix}primary-soft);
+  --#{$prefix}timeline-dot-border-color: var(--#{$prefix}primary);
+
+  // block, element & modifiers
+  &-item {
+    position: relative;
+
+    &::after {
+      content: "";
+      left: -4px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      overflow: hidden;
+      border-radius: 50%;
+      position: absolute;
+      background-color: var(--#{$prefix}timeline-dot-bg);
+      border: 3px solid var(--#{$prefix}timeline-dot-border-color);
+    }
+
+    &:first-child {
+      &::after {
+        --#{$prefix}timeline-dot-bg: var(--#{$prefix}primary-soft);
+        --#{$prefix}timeline-dot-border-color: var(--#{$prefix}transparent);
+      }
+    }
+
+    &:nth-last-child(1) {
+      &::after {
+        --#{$prefix}timeline-dot-bg: var(--#{$prefix}primary);
+        --#{$prefix}timeline-dot-border-color: var(--#{$prefix}transparent);
+      }
+
+      .#{$prefix}timeline {
+        &-card {
+          --#{$prefix}border-color: transparent;
+        }
+      }
+    }
+  }
+
+  &-card {
+    padding: 0px 0px 16px 16px;
+    border-left: 2px solid var(--#{$prefix}border-color);
+  }
+}

@@ -1,0 +1,103 @@
+.#{$prefix}header {
+  --#{$prefix}header-padding-x: 0px;
+  --#{$prefix}header-padding-y: .6875rem;
+
+  --#{$prefix}header-zindex: 999;
+  --#{$prefix}header-position: fixed;
+
+  --#{$prefix}header-bg-color: var(--#{$prefix}white);
+  --#{$prefix}header-text-color: var(--#{$prefix}dark);
+
+  // --#{$prefix}header-brand-logo-color: var(--#{$prefix}dark);
+  // --#{$prefix}header-brand-logo-highlight-color: var(--#{$prefix}primary);
+
+  --#{$prefix}header-action-media-text-color: var(--#{$prefix}primary);
+  --#{$prefix}header-action-media-before-bg-color: var(--#{$prefix}primary-soft);
+
+  @each $color, $value in $theme-colors {
+    &[data-bs-theme="#{$color}"] {
+      --#{$prefix}header-text-color: var(--#{$prefix}white) !important;
+      --#{$prefix}header-bg-color: var(--#{$prefix}#{$color}) !important;
+
+      --#{$prefix}header-brand-logo-color: var(--#{$prefix}white);
+      --#{$prefix}header-brand-logo-highlight-color: var(--#{$prefix}dark);
+
+      --#{$prefix}header-action-media-text-color: var(--#{$prefix}#{$color});
+      --#{$prefix}header-action-media-before-bg-color: var(--#{$prefix}#{$color}-soft);
+    }
+  }
+
+  &[data-bs-theme="dark"] {
+    --#{$prefix}header-bg-color: var(--#{$prefix}gray-800) !important;
+    --#{$prefix}header-brand-logo-highlight-color: var(--#{$prefix}primary) !important;
+  }
+
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.2s linear;
+  z-index: var(--#{$prefix}header-zindex);
+  position: var(--#{$prefix}header-position);
+  background-color: var(--#{$prefix}header-bg-color);
+  padding: var(--#{$prefix}header-padding-y) var(--#{$prefix}header-padding-x);
+
+  &.is-sticky {
+    padding: 12px 0px;
+  }
+
+  &-actions {
+    gap: 0rem;
+    display: flex;
+    align-items: center;
+
+    .#{$prefix}media {
+      --#{$prefix}media-overflow: visible;
+      --#{$prefix}media-text-color: var(--#{$prefix}header-text-color);
+
+      &::before {
+        content: "";
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        z-index: -1;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        border-radius: 50%;
+        transform-origin: 50% 50%;
+        transition: all 0.2s linear;
+        transform: translate(-50%, -50%);
+        background-color: var(--#{$prefix}header-action-media-before-bg-color);
+      }
+
+      &:hover {
+        color: var(--#{$prefix}header-action-media-text-color);
+
+        &::before {
+          opacity: 1;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+
+  &-inner { 
+    --#{$prefix}header-padding-y: 6px;
+  }
+
+  &.demo {
+    --#{$prefix}header-zindex: 1;
+    --#{$prefix}header-position: relative;
+  }
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .#{$prefix}header {
+      --#{$prefix}header-bg-color: var(--#{$prefix}gray-800);
+      --#{$prefix}header-text-color: var(--#{$prefix}white);
+    }
+  }
+}

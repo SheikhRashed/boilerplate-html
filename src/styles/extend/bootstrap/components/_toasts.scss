@@ -1,0 +1,11 @@
+.toast { 
+  --#{$prefix}toast-padding-x: 1rem; 
+  --#{$prefix}toast-padding-y: .75rem; 
+  --#{$prefix}toast-bg: var(--#{$prefix}white);
+
+  border: 0px;
+
+  &-body {
+    padding: var(--#{$prefix}toast-padding-y) var(--#{$prefix}toast-padding-x);
+  }
+}

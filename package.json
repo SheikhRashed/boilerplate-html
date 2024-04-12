@@ -19,5 +19,9 @@
     "vite-plugin-inspect": "^0.8.3",
     "vite-plugin-time-reporter": "^2.3.0",
     "vituum": "^1.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "swiper": "^11.1.1"
   }
 }
