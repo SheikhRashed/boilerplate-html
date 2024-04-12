@@ -16,10 +16,11 @@
 // @import "extend/bootstrap/variables";
 
 // include fonts
-@import "core/fonts/+.scss";
+@import "core/fonts/fonts";
 
 // extend bootstrap
-@import "extend/+.scss";
+@import "extend/bootstrap/bootstrap";
+@import "extend/bootstrap/+.scss";
 
 // include vendores
 @import "vendors/+.scss";
