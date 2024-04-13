@@ -20,10 +20,11 @@
 
 // extend bootstrap
 @import "extend/bootstrap/bootstrap";
-@import "extend/bootstrap/+.scss";
+@import "extend/bootstrap/extend";
 
 // include vendores
-@import "vendors/+.scss";
+@import "vendors/bundle";
 
 // include core style
-@import "core/+.scss";
+@import "core/style";
+

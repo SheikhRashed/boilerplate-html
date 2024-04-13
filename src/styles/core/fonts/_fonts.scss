@@ -1,8 +1,9 @@
 // include Spline Sans
- @font-face {
-  font-family: "Spline Sans", sans-serif;
+
+@font-face {
+  font-family: "Spline Sans";
   src:
-    local("SplineSans Regular"),
+    local("Spline Sans Regular"),
     local("SplineSans-Regular"),
     url("#{$fontPath}/spline-sans/SplineSans-Regular.woff") format("woff"),
     url("#{$fontPath}/spline-sans/SplineSans-Regular.ttf") format("truetype"),
@@ -10,12 +11,12 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-} 
+}
 
- @font-face {
-  font-family: "Spline Sans", sans-serif;
+@font-face {
+  font-family: "Spline Sans";
   src:
-    local("SplineSans Medium"),
+    local("Spline Sans Medium"),
     local("SplineSans-Medium"),
     url("#{$fontPath}/spline-sans/SplineSans-Medium.woff") format("woff"),
     url("#{$fontPath}/spline-sans/SplineSans-Medium.ttf") format("truetype"),
@@ -23,20 +24,20 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-} 
+}
 
- @font-face {
-  font-family: "Spline Sans", sans-serif;
+@font-face {
+  font-family: "Spline Sans";
   src:
-    local("SplineSans Bold"),
+    local("Spline Sans Bold"),
     local("SplineSans-Bold"),
     url("#{$fontPath}/spline-sans/SplineSans-Bold.woff") format("woff"),
     url("#{$fontPath}/spline-sans/SplineSans-Bold.ttf") format("truetype"),
     url("#{$fontPath}/spline-sans/SplineSans-Bold.svg#SplineSans-Bold") format("svg");
-  font-weight: 700;
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
-} 
+}
 
 // include Roboto
 @font-face {

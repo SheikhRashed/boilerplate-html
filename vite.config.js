@@ -7,19 +7,26 @@ import timeReporter from 'vite-plugin-time-reporter';
 
 export default defineConfig({
   publicDir: resolve(__dirname, 'src/public'),
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Ensure that only the main style.scss file is processed
+        additionalData: `@import "@/styles/style.scss";`
+      }
+    }
+  },
   plugins:[
-      vituum({
-        imports: {
-            filenamePattern: {
-                '+.css': [],
-                '+.scss': 'src/styles'
-            },
-        }
-    }),
     Inspect(),
     timeReporter(),
+    vituum({
+      imports: {
+        filenamePattern: {
+            '+.css': [],
+        },
+      }
+    }),
     nunjucks({
       root: resolve(__dirname, 'src'),
-    }),
-  ]
+    })
+  ],
 });

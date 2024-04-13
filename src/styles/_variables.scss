@@ -43,9 +43,6 @@ $prefix: $variable-prefix;
 $fontPath: "/assets/fonts";
 $assetsPath: "/assets/images";
 
-// $fontPath: "../fonts";
-// $assetsPath: "../../assets/images";
-
 /********************************************
 
   ## COLORS ##
@@ -180,7 +177,6 @@ $font-weight-bold: 700;
 // overrides bs ( bootstrap ) heading-variables
 $headings-color: $blue-900;
 $headings-font-weight: $font-weight-bold;
-$headings-font-family: $font-family-sans-serif;
 
 /********************************************
   ## GRID SYSTEMS ##
