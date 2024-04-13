@@ -7,14 +7,6 @@ import timeReporter from 'vite-plugin-time-reporter';
 
 export default defineConfig({
   publicDir: resolve(__dirname, 'src/public'),
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // Ensure that only the main style.scss file is processed
-        additionalData: `@import "@/styles/style.scss";`
-      }
-    }
-  },
   plugins:[
     Inspect(),
     timeReporter(),
@@ -29,4 +21,9 @@ export default defineConfig({
       root: resolve(__dirname, 'src'),
     })
   ],
+  build: { 
+    rollupOptions: { 
+      input: ['./src/styles/style.{css,scss,sass,less}']
+    }
+  }
 });
